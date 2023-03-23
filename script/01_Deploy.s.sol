@@ -41,11 +41,6 @@ contract DeployScript is Script {
         contracts.judgeCompetitionMultipleWinners =
             new JudgeCompetitionMultipleWinners(lensHub, address(contracts.lensCompetitionHub));
 
-        contracts.feePrizeJudgeCompetition =
-            new FeePrizeJudgeCompetition(lensHub, address(contracts.lensCompetitionHub));
-
-        contracts.prizeJudgeCompetition = new PrizeJudgeCompetition(lensHub, address(contracts.lensCompetitionHub));
-
         vm.stopBroadcast();
     }
 }
