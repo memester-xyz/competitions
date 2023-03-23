@@ -18,8 +18,7 @@ contract DeployNewCompetitionsScript is Script {
 
         vm.startBroadcast(deployer);
 
-        contracts.feePrizeJudgeCompetition =
-            new FeePrizeJudgeCompetition(lensHub, lensCompetitionHub);
+        contracts.feePrizeJudgeCompetition = new FeePrizeJudgeCompetition(lensHub, lensCompetitionHub);
 
         contracts.prizeJudgeCompetition = new PrizeJudgeCompetition(lensHub, lensCompetitionHub);
 
