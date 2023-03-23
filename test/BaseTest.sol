@@ -9,6 +9,7 @@ import {LensTestUtils} from "./LensTestUtils.sol";
 
 import {ScriptReturns} from "../script/types/ScriptReturns.sol";
 import {DeployScript} from "../script/01_Deploy.s.sol";
+import {DeployNewCompetitionsScript} from "../script/02_DeployNewCompetitions.s.sol";
 
 import {Events} from "../src/Events.sol";
 import {ILensHub} from "../src/lens/ILensHub.sol";
@@ -27,6 +28,7 @@ abstract contract BaseTest is Test {
     address immutable judge = vm.addr(3);
 
     ScriptReturns.Deploy_01 internal contracts;
+    ScriptReturns.Deploy_02 internal contracts2;
 
     ILensHub internal lensHub;
     address internal governance;
@@ -52,12 +54,15 @@ abstract contract BaseTest is Test {
         vm.label(judge, "judge");
 
         contracts = new DeployScript().run();
+        lensCompetitionHub = contracts.lensCompetitionHub;
+        vm.setEnv("LENS_COMPETITION_HUB", vm.toString(address(lensCompetitionHub)));
+        contracts2 = new DeployNewCompetitionsScript().run();
 
         lensCompetitionHub = contracts.lensCompetitionHub;
         judgeCompetition = contracts.judgeCompetition;
         judgeCompetitionMultipleWinners = contracts.judgeCompetitionMultipleWinners;
-        feePrizeJudgeCompetition = contracts.feePrizeJudgeCompetition;
-        prizeJudgeCompetition = contracts.prizeJudgeCompetition;
+        feePrizeJudgeCompetition = contracts2.feePrizeJudgeCompetition;
+        prizeJudgeCompetition = contracts2.prizeJudgeCompetition;
 
         vm.startPrank(governance);
         contracts.lensCompetitionHub.whitelistCompetition(address(judgeCompetition), true);

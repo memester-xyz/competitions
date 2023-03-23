@@ -13,6 +13,9 @@ library ScriptReturns {
         LensCompetitionHub lensCompetitionHub;
         JudgeCompetition judgeCompetition;
         JudgeCompetitionMultipleWinners judgeCompetitionMultipleWinners;
+    }
+
+    struct Deploy_02 {
         FeePrizeJudgeCompetition feePrizeJudgeCompetition;
         PrizeJudgeCompetition prizeJudgeCompetition;
     }
