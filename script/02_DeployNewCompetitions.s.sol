@@ -3,14 +3,9 @@ pragma solidity ^0.8.19;
 
 import "forge-std/Script.sol";
 
-import {ERC1967Proxy} from "openzeppelin-contracts/proxy/ERC1967/ERC1967Proxy.sol";
-
 import {ScriptReturns} from "./types/ScriptReturns.sol";
 
 import {ILensHub} from "../src/lens/ILensHub.sol";
-import {LensCompetitionHub} from "../src/LensCompetitionHub.sol";
-import {JudgeCompetition} from "../src/competitions/JudgeCompetition.sol";
-import {JudgeCompetitionMultipleWinners} from "../src/competitions/JudgeCompetitionMultipleWinners.sol";
 import {FeePrizeJudgeCompetition} from "../src/competitions/FeePrizeJudgeCompetition.sol";
 import {PrizeJudgeCompetition} from "../src/competitions/PrizeJudgeCompetition.sol";
 

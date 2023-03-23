@@ -11,8 +11,6 @@ import {ILensHub} from "../src/lens/ILensHub.sol";
 import {LensCompetitionHub} from "../src/LensCompetitionHub.sol";
 import {JudgeCompetition} from "../src/competitions/JudgeCompetition.sol";
 import {JudgeCompetitionMultipleWinners} from "../src/competitions/JudgeCompetitionMultipleWinners.sol";
-import {FeePrizeJudgeCompetition} from "../src/competitions/FeePrizeJudgeCompetition.sol";
-import {PrizeJudgeCompetition} from "../src/competitions/PrizeJudgeCompetition.sol";
 
 contract DeployScript is Script {
     function run() public returns (ScriptReturns.Deploy_01 memory contracts) {
